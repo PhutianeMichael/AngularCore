@@ -1,10 +1,11 @@
 <ng-container *ngIf="course">
-  <div class="course-card">
+  <div class="course-card" [ngClass]="cardClasses()">
     <div class="course-title">
       {{course.description}}
     </div>
     <img width="300" alt="Angular Logo"
-      [src]="course.iconUrl">
+      [src]="course.iconUrl"
+      *ngIf="isImageVisible() else noImage">
 
     <ng-template #noImage>
       <p>No image available</p>

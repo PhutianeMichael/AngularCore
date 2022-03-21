@@ -15,6 +15,5 @@ export class AppComponent {
 
   onCourseSelected(course:Course){
     this.course = course;
-    console.log(course);
   }
 }
