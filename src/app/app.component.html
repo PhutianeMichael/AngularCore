@@ -6,8 +6,8 @@
 </div>
 <div class="courses">
   <app-course-card
-
     [course]="course"
-    >
+    (courseSelected)="onCourseSelected($event)"
+    [ngClass]="course.category">
   </app-course-card>
 </div>
