@@ -9,13 +9,8 @@
   <app-course-card
     [course]="course"
     (courseSelected)="onCourseSelected($event)"
-    [ngClass]="course.category"> <div class="imageContainer">
-
-      <img #courseImage width="300" alt="Angular Logo"
-        [src]="course.iconUrl"
-        > <!-- passing a configurable element -->
-        <h3>Number of leasons : {{course.id}}</h3>
-    </div>
+    [ngClass]="course.category">
+    <app-course-image [src]="course.iconUrl"></app-course-image>
     <div class="course-description">
       {{course.longDescription}}
     </div>

@@ -3,7 +3,7 @@
     <div class="course-title" [ngStyle]="cardDescriptionStyles()">
       {{cardIndex || ''}} {{course.description}}
     </div>
-    <ng-content select=".imageContainer"></ng-content>
+    <ng-content select="app-course-image"></ng-content>
 
     <ng-content select=".course-description"></ng-content>
 
