@@ -4,7 +4,7 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
-<div #container>
+<!-- <div #container>
   <div>
     <app-course-card
       #card
@@ -27,17 +27,13 @@
       (courseSelected)="onCourseSelected($event)"
     ></app-course-card>
   </div>
-</div>
-<!-- <div class="courses">
+</div> -->
+<button (click)="onCourseEdited()">Edit courses</button>
+<div class="courses">
   <app-course-card
-    *ngFor="let course of courses | slice:0:3; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd "
+    *ngFor="let course of courses"
     [course]="course"
-    [cardIndex]="i + 1"
-    [class.is-first]="isFirst"
-    [class.is-last]="isLast"
-    [class.is-even]="isEven"
-    [class.is-odd]="isOdd"
     (courseSelected)="onCourseSelected($event)"
     [ngClass]="course.category">
   </app-course-card>
-</div> -->
+</div>
