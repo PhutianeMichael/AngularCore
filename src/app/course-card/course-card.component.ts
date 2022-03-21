@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Course } from '../models/course';
 
 @Component({
@@ -16,8 +16,6 @@ export class CourseCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  isImageVisible(){
-    return this.course && this.course.iconUrl;
-  }
+
 
 }

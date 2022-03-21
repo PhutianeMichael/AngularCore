@@ -9,6 +9,8 @@ import { Course } from './models/course';
 })
 export class AppComponent {
   courses:Course[] = COURSES;
-  title = 'AngularCore';
+  title:string = "Angular Core";
+  course:Course = this.courses[0];
+
 
 }
