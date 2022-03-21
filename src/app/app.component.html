@@ -5,29 +5,33 @@
   />
 </div>
 
-<div class="courses" *ngIf="courses[0] as course">
-  <!--aliance reference -->
+<ng-template [ngIf]="courses[0]" let-course>
+  <!--*ngIf does all these-->
 
-  <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{ courseName }} has no image yet</p>
-    <img src="../assets/empty-image.png" />
-  </ng-template>
+  <div class="courses">
+    <!--aliance reference -->
 
-  <app-course-card
-    #highlighter="hl"
-    [highlighted]="false"
-    (toggleHighlight)="onToggle($event)"
-    [noImageTpl]="blankImage"
-    [course]="course"
-    (courseSelected)="onCourseSelected($event)"
-    [ngClass]="course.category"
-  >
-    <app-course-image
-      [src]="course.iconUrl"
-      *ngIf="course.iconUrl"
-    ></app-course-image>
-    <div class="course-description" (dblclick)="highlighter.toggle()">
-      {{ course.longDescription }}
-    </div>
-  </app-course-card>
-</div>
+    <ng-template #blankImage let-courseName="description">
+      <p class="warn">{{ courseName }} has no image yet</p>
+      <img src="../assets/empty-image.png" />
+    </ng-template>
+
+    <app-course-card
+      #highlighter="hl"
+      [highlighted]="false"
+      (toggleHighlight)="onToggle($event)"
+      [course]="course"
+      (courseSelected)="onCourseSelected($event)"
+    >
+      <course-image
+        [src]="course.iconUrl"
+        *ngxUless="!course.iconUrl"
+      ></course-image>
+
+      <div class="course-description"
+          (dblclick)="highlighter.toggle()">
+        {{ course.longDescription }}
+      </div>
+    </app-course-card>
+  </div>
+</ng-template>
