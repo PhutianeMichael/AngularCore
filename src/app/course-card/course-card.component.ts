@@ -24,6 +24,10 @@ export class CourseCardComponent implements OnInit {
     this.courseEmitter.emit(this.course);
   }
 
+  cardDescriptionStyles(){
+    return {'text-decoration' : 'underline','font-weight':'bold'};
+  }
+
   isImageVisible() {
     return this.course && this.course.iconUrl;
   }
