@@ -4,36 +4,22 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
-<!-- <div #container>
-  <div>
-    <app-course-card
-      #card
-      [course]="courses[0]"
-      (courseSelected)="onCourseSelected($event)"
-    ></app-course-card>
-  </div>
-  <div>
-    <app-course-card
-      #cardRef1
-      [course]="courses[1]"
-      (courseSelected)="onCourseSelected($event)"
-    ></app-course-card>
-  </div>
 
-  <div>
-    <app-course-card
-      #cardRef2
-      [course]="courses[2]"
-      (courseSelected)="onCourseSelected($event)"
-    ></app-course-card>
-  </div>
-</div> -->
-<button (click)="onCourseEdited()">Edit courses</button>
-<div class="courses">
+ <div class="courses" *ngIf="courses[0] as course">  <!--aliance reference -->
   <app-course-card
-    *ngFor="let course of courses"
     [course]="course"
     (courseSelected)="onCourseSelected($event)"
-    [ngClass]="course.category">
+    [ngClass]="course.category"> <div class="imageContainer">
+
+      <img #courseImage width="300" alt="Angular Logo"
+        [src]="course.iconUrl"
+        > <!-- passing a configurable element -->
+        <h3>Number of leasons : {{course.id}}</h3>
+    </div>
+    <div class="course-description">
+      {{course.longDescription}}
+    </div>
+    <p>Project the rest</p>
+    <p>Project the rest</p>
   </app-course-card>
 </div>

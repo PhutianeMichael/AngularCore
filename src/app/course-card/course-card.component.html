@@ -3,16 +3,12 @@
     <div class="course-title" [ngStyle]="cardDescriptionStyles()">
       {{cardIndex || ''}} {{course.description}}
     </div>
-    <img #courseImage width="300" alt="Angular Logo"
-      [src]="course.iconUrl"
-      *ngIf="isImageVisible() else noImage">
+    <ng-content select=".imageContainer"></ng-content>
 
-    <ng-template #noImage>
-      <p>No image available</p>
-    </ng-template>
-    <div class="course-description">
-      {{course.longDescription}}
-    </div>
+    <ng-content select=".course-description"></ng-content>
+
+    <ng-content></ng-content>
+
 
     <ng-container class="course-category" [ngSwitch]="course.category">
       <div class="course-category">
