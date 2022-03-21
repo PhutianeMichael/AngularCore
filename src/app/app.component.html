@@ -4,29 +4,31 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
+<div #container>
+  <div>
+    <app-course-card
+      #card
+      [course]="courses[0]"
+      (courseSelected)="onCourseSelected($event)"
+    ></app-course-card>
+  </div>
+  <div>
+    <app-course-card
+      #cardRef1
+      [course]="courses[1]"
+      (courseSelected)="onCourseSelected($event)"
+    ></app-course-card>
+  </div>
 
-<div *ngFor="let pair of course | keyvalue">
-  {{pair.key}}
-</div><hr>
-<div *ngFor="let pair of course | keyvalue">{{pair.key}} : {{pair.value}}</div><hr>
-<div>{{startDate}}</div>
-<div>{{startDate | date}}</div>
-<div>{{startDate | date:'MM/dd/yy'}}</div>
-<div>{{startDate | date:'MMM/dd/yyyy'}}</div><hr>
-<div>{{title | titlecase}}</div>
-<div>{{title | uppercase}}</div>
-<div>{{title | lowercase}}</div><hr>
-<div>{{price }}</div>
-<div>{{price | number}}</div>
-<div>{{price | number: '4.4-6'}}</div><hr>
-<div>{{price | currency}}</div>
-<div>{{price | currency:'GBP'}}</div>
-<div>{{price | currency:'EUR'}}</div>
-<div>{{rate | percent}}</div><hr>
-
-<div>{{course | json}}</div><hr>
-<div>{{courses | json}}</div><hr>
-<div class="courses">
+  <div>
+    <app-course-card
+      #cardRef2
+      [course]="courses[2]"
+      (courseSelected)="onCourseSelected($event)"
+    ></app-course-card>
+  </div>
+</div>
+<!-- <div class="courses">
   <app-course-card
     *ngFor="let course of courses | slice:0:3; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd "
     [course]="course"
@@ -38,4 +40,4 @@
     (courseSelected)="onCourseSelected($event)"
     [ngClass]="course.category">
   </app-course-card>
-</div>
+</div> -->
