@@ -5,23 +5,29 @@
   />
 </div>
 
- <div class="courses" *ngIf="courses[0] as course">  <!--aliance reference -->
+<div class="courses" *ngIf="courses[0] as course">
+  <!--aliance reference -->
 
   <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{courseName}} has no image yet</p>
-    <img src="../assets/empty-image.png">
+    <p class="warn">{{ courseName }} has no image yet</p>
+    <img src="../assets/empty-image.png" />
   </ng-template>
 
   <app-course-card
+    #highlighter="hl"
+    [highlighted]="false"
+    (toggleHighlight)="onToggle($event)"
     [noImageTpl]="blankImage"
     [course]="course"
     (courseSelected)="onCourseSelected($event)"
-    [ngClass]="course.category">
-    <app-course-image [src]="course.iconUrl" *ngIf="course.iconUrl"></app-course-image>
-    <div class="course-description">
-      {{course.longDescription}}
+    [ngClass]="course.category"
+  >
+    <app-course-image
+      [src]="course.iconUrl"
+      *ngIf="course.iconUrl"
+    ></app-course-image>
+    <div class="course-description" (dblclick)="highlighter.toggle()">
+      {{ course.longDescription }}
     </div>
-    <p>Project the rest</p>
-    <p>Project the rest</p>
   </app-course-card>
 </div>
