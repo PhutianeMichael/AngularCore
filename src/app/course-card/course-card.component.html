@@ -1,7 +1,7 @@
-<ng-container *ngIf="course">
-  <div class="course-card" [ngClass]="cardClasses()">
+
+  <div class="course-card" [ngClass]="cardClasses()" *ngIf="course">
     <div class="course-title">
-      {{course.description}}
+      {{cardIndex}} {{course.description}}
     </div>
     <img width="300" alt="Angular Logo"
       [src]="course.iconUrl"
@@ -38,4 +38,3 @@
     <button (click)="onCourseViewed()">View Course</button>
 
   </div>
-</ng-container>

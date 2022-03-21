@@ -4,31 +4,31 @@ import { Course } from '../models/course';
 @Component({
   selector: 'app-course-card',
   templateUrl: './course-card.component.html',
-  styleUrls: ['./course-card.component.css']
+  styleUrls: ['./course-card.component.css'],
 })
 export class CourseCardComponent implements OnInit {
+  @Input()
+  course: Course;
 
   @Input()
-  course:Course;
+  cardIndex: number;
 
   @Output('courseSelected')
   courseEmitter = new EventEmitter<Course>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onCourseViewed(){
+  onCourseViewed() {
     this.courseEmitter.emit(this.course);
   }
 
-  isImageVisible(){
+  isImageVisible() {
     return this.course && this.course.iconUrl;
   }
 
   cardClasses() {
-    return this.course.category === "BEGINNER" ? "beginner" : "";
+    return this.course.category === 'BEGINNER' ? 'beginner' : '';
   }
-
 }
