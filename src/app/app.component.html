@@ -6,13 +6,18 @@
 </div>
 
  <div class="courses" *ngIf="courses[0] as course">  <!--aliance reference -->
+
+  <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{courseName}} has no image yet</p>
+    <img src="../assets/empty-image.png">
+  </ng-template>
+
   <app-course-card
+    [noImageTpl]="blankImage"
     [course]="course"
     (courseSelected)="onCourseSelected($event)"
     [ngClass]="course.category">
-    <app-course-image [src]="course.iconUrl"></app-course-image>
-    <app-course-image [src]="courses[1].iconUrl"></app-course-image>
-    <app-course-image [src]="courses[2].iconUrl"></app-course-image>
+    <app-course-image [src]="course.iconUrl" *ngIf="course.iconUrl"></app-course-image>
     <div class="course-description">
       {{course.longDescription}}
     </div>
