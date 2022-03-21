@@ -13,6 +13,12 @@ export class AppComponent {
   course:Course = this.courses[0];
 
 
+  startDate = new Date(2000,0,1);
+  price = 45.98;
+  rate = 0.15;
+
+
+
   onCourseSelected(course:Course){
     this.course = course;
   }
